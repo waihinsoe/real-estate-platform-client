@@ -1,6 +1,53 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { getProperty } from "@/api/property";
+import { createPageMetadata } from "@/lib/metadata";
 import { PropertyDetail } from "@/app/[locale]/(root)/properties/[slug]/_components/property-detail";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const fallback = createPageMetadata(
+    t("propertyTitle"),
+    t("propertyDescription"),
+    locale,
+  );
+
+  try {
+    const property = await getProperty(slug);
+    if (!property) {
+      return {
+        ...createPageMetadata(
+          t("propertyNotFoundTitle"),
+          t("propertyNotFoundDescription"),
+          locale,
+        ),
+        robots: { index: false, follow: false },
+      };
+    }
+
+    const description = property.description
+      ?.replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 160);
+
+    return createPageMetadata(
+      property.title || t("propertyTitle"),
+      description || property.subtitle || t("propertyDescription"),
+      locale,
+    );
+  } catch {
+    // Keep the detail page available for client-side retries during API outages.
+    return fallback;
+  }
+}
 
 export default async function PropertyPage({
   params,

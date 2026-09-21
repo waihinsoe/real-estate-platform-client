@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ArticlesExplorer } from "@/app/[locale]/(root)/blogs/_components/articles-explorer";
 import { mockArticles } from "@/lib/data/mock-articles";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Blogs");
-  return {
-    title: t("metadataTitle"),
-    description: t("metadataDescription"),
-  };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Blogs" });
+  return createPageMetadata(t("metadataTitle"), t("metadataDescription"), locale);
 }
 
 export default function ArticlesPage() {

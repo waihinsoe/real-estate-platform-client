@@ -38,7 +38,9 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Suspense
-            fallback={<Skeleton className="h-11 w-40 rounded-full" aria-hidden="true" />}
+            fallback={
+              <Skeleton className="h-11 w-40 rounded-full" aria-hidden="true" />
+            }
           >
             <LanguageToggle />
           </Suspense>

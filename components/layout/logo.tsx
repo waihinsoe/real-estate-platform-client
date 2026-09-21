@@ -8,9 +8,9 @@ export function Logo() {
       aria-label="ZawTiKa Home"
       className="inline-flex items-center gap-3.5"
     >
-      <div className="relative size-14 shrink-0 sm:size-16">
+      <div className="relative bg-white! size-14 shrink-0 sm:size-16">
         <Image
-          src="/images/logo.png"
+          src="/images/lucky7andOne-logo.png"
           alt="ZawTiKa"
           fill
           priority
@@ -22,10 +22,10 @@ export function Logo() {
       <div className="flex flex-col justify-center">
         <div className="flex items-baseline text-2xl font-bold leading-none tracking-tight sm:text-3xl">
           <span className="text-foreground group-hover:text-primary">
-            Zaw
+            Lucky
           </span>
 
-          <span className="text-primary">TiKa</span>
+          <span className="text-primary">7andOne</span>
         </div>
 
         <span className="mt-1.5 text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">

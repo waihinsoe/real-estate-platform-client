@@ -88,12 +88,12 @@
     "viewAll": "View all articles"
   },
   "Blogs": {
-    "metadataTitle": "Articles | Haven",
+    "metadataTitle": "Articles",
     "metadataDescription": "Myanmar-language guides to land types, property documents, site visits, and buying preparation.",
     "journal": "Haven Journal",
     "title": "Know more. Choose well.",
     "description": "Explore practical guides to buying land and understanding property in Myanmar. Written in Myanmar, made for thoughtful decisions.",
-    "notFoundTitle": "Article not found | Haven",
+    "notFoundTitle": "Article not found",
     "keepExploring": "Keep exploring",
     "search": "Search articles",
     "categoriesLabel": "Article categories",
@@ -116,5 +116,15 @@
     "readTime": "{minutes, number, localized} min read",
     "readArticle": "Read article",
     "readArticleLabel": "Read article: {title}"
+  },
+  "Metadata": {
+    "homeTitle": "Homes, Land & Property in Myanmar",
+    "homeDescription": "Explore homes, land, apartments, and commercial properties for sale or rent across Myanmar with Lucky7andOne.",
+    "propertiesTitle": "Properties for Sale & Rent",
+    "propertiesDescription": "Browse properties across Myanmar. Search homes, land, apartments, and business spaces by location, property type, and budget.",
+    "propertyTitle": "Property Details",
+    "propertyDescription": "View property details, photos, location, and contact information on Lucky7andOne.",
+    "propertyNotFoundTitle": "Property Not Found",
+    "propertyNotFoundDescription": "This property could not be found. Browse available properties for sale and rent on Lucky7andOne."
   }
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ArticleDetail } from "@/app/[locale]/(root)/blogs/[slug]/_components/article-detail";
@@ -12,15 +13,12 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const t = await getTranslations("Blogs");
+  const { locale, slug } = await params;
   const post = mockArticles.find((article) => article.slug === slug);
-  return {
-    title: post ? `${post.title} | Haven` : t("notFoundTitle"),
-    description: post?.excerpt,
-  };
+  if (!post) notFound();
+  return createPageMetadata(post.title, post.excerpt, locale, "article");
 }
 
 export default async function ArticlePage({
