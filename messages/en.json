@@ -126,5 +126,26 @@
     "propertyDescription": "View property details, photos, location, and contact information on Lucky7andOne.",
     "propertyNotFoundTitle": "Property Not Found",
     "propertyNotFoundDescription": "This property could not be found. Browse available properties for sale and rent on Lucky7andOne."
+  },
+  "PropertyInquiry": {
+    "heading": "Interested in this property?",
+    "description": "Leave your contact details and a message so we can get back to you.",
+    "name": "Full name",
+    "namePlaceholder": "Your full name",
+    "nameValidation": "Enter your name.",
+    "phone": "Phone number",
+    "phonePlaceholder": "09…",
+    "phoneValidation": "Enter a phone number containing digits.",
+    "email": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message",
+    "messageValidation": "Enter a message.",
+    "defaultMessage": "မင်္ဂလာပါ။ «{title}» အိမ်ခြံမြေကို စိတ်ဝင်စားပါသည်။ အသေးစိတ်အချက်အလက်များ သိရှိလိုပြီး လာရောက်ကြည့်ရှုရန်လည်း စိတ်ဝင်စားပါသည်။ ဖော်ပြထားသော ဆက်သွယ်ရန်အချက်အလက်များမှတစ်ဆင့် ပြန်လည်ဆက်သွယ်ပေးပါရန် မေတ္တာရပ်ခံပါသည်။ ကျေးဇူးတင်ပါသည်။",
+    "send": "Send inquiry",
+    "sending": "Sending inquiry…",
+    "sent": "Inquiry sent",
+    "success": "Thank you! Your inquiry has been sent. We’ll contact you using the details you provided.",
+    "error": "We couldn’t send your inquiry. Please try again. Your details are still here.",
+    "unavailable": "Inquiries are currently unavailable for this property. Please use the listed contact details."
   }
 }
