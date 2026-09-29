@@ -8,6 +8,7 @@ import { PropertyDetailSkeleton } from "@/components/loading/property-detail-ske
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PropertyContactCard } from "@/components/card/property-contact-card";
+import { PropertyInquiryCard } from "@/components/card/property-inquiry-card";
 
 export function PropertyDetail({ slug }: { slug: string }) {
   const query = useProperty(slug);
@@ -70,16 +71,13 @@ export function PropertyDetail({ slug }: { slug: string }) {
         <p className="mt-3 text-lg">{property.subtitle}</p>
       )}
       {location && <p className="mt-3 text-muted-foreground">{location}</p>}
-      <div className="mt-8 grid items-start gap-8 lg:grid-cols-[2fr_1fr]">
+      <div className="mt-8">
         <PropertyGallery
           key={`${slug}-property-gallery`}
           images={property?.images}
           title={title}
         />
-        <PropertyContactCard
-          key={`${slug}-property-contact-card`}
-          property={property}
-        />
+
       </div>
       <div className="mt-10 space-y-8">
         {property?.description && (
@@ -118,6 +116,17 @@ export function PropertyDetail({ slug }: { slug: string }) {
             </ul>
           </section>
         )}
+        <div className="grid items-start gap-6 lg:grid-cols-2">
+          <PropertyInquiryCard
+            key={`${slug}-${property.id}-inquiry`}
+            propertyId={property.id}
+            propertyTitle={title}
+          />
+          <PropertyContactCard
+            key={`${slug}-property-contact-card`}
+            property={property}
+          />
+        </div>
         <LocationMap
           latitude={property.latitude}
           longitude={property.longitude}
